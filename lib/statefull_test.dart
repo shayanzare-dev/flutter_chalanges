@@ -12,14 +12,16 @@ class _StateFullAppState extends State<StateFullApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Column(
-          children: [
-            Container(
-              color: Colors.greenAccent,
-              width: 150,
-              height: 150,
-            ),
-          ],
+        body: SizedBox(
+          width: double.infinity,
+          height: double.infinity,
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Text('asas'),
+              Text('asdsda'),
+            ],
+          ),
         ),
         appBar: AppBar(leading: const Icon(Icons.abc_sharp)),
       ),

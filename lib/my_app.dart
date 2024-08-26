@@ -1,23 +1,76 @@
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  List<int> students = [
+    15,
+    85,
+    85,
+    85,
+    85,
+    85,
+    85,
+    85,
+    85,
+    85,
+    85,
+    85,
+    85,
+    85,
+    85,
+    85,
+    85,
+    85,
+    85,
+    85,
+    85,
+    85,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+  ];
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
           bottomNavigationBar: _bottomNavigationBars(),
-          body: Directionality(
-              textDirection: TextDirection.rtl,
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  const Text('shayan zare'),
-                  _stack(),
-                ],
-              ))),
+          body: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Expanded(
+                flex: 2,
+                child: ColoredBox(
+                  color: Colors.red,
+                  child: ListView(
+
+                    scrollDirection: Axis.horizontal,
+                    physics: const ScrollPhysics(),
+    //                itemExtent: 11,
+                    children: [
+                      ...students.map(
+                        (e) => Text('$e'),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          )),
     );
   }
 }
@@ -36,20 +89,25 @@ Widget _stack() => Stack(
         SizedBox(
           width: double.infinity,
           child: Container(
-            color: Colors.red,
             width: 400,
             height: 400,
+            decoration: BoxDecoration(
+                color: Colors.red, borderRadius: BorderRadius.circular(35)),
           ),
         ),
+//        const Placeholder(),
         Container(
-          color: Colors.black,
+          decoration: BoxDecoration(
+              color: Colors.green, borderRadius: BorderRadius.circular(35)),
           width: 350,
           height: 350,
         ),
         Container(
-          color: Colors.greenAccent,
+          decoration: BoxDecoration(
+              color: Colors.yellow, borderRadius: BorderRadius.circular(35)),
           width: 150,
           height: 150,
         ),
+        const Placeholder(),
       ],
     );
